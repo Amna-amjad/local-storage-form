@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="style.css">
+    
+    <title>Login Form</title>
+</head>
+<body>
+     <div class = "content">
+        <div class = "text">Sign Up</div>
+        <form action="#"  name="myform">
+            <div class="field">
+                <span class="bx bxr-user"></span>
+                <input type="username" placeholder="Username" required id="user">
+            </div>
+
+            <div class="field">
+                <span class="bx bxr-envelope"></span>
+                <input type="email" placeholder="Email" required id="email">
+            </div>
+
+            <div class="field">
+                <span class="bx bxr-lock-alt"></span>
+                <input type="password" placeholder="Password" id="pass">
+            </div>
+
+
+         <button onclick="submitForm()">Sign Up</button>
+
+         <h4> or Sign Up with social platforms</h4>
+
+         <div class="social_icons">
+            <i class='bx bxl-meta'></i> 
+            <i class='bx bxl-discord'></i>      
+            <i class='bx bxl-twitter'></i>      
+            <i class='bx bxl-google'></i>             
+         </div>
+
+         <div class="foot">
+            <a>Already have a account</a>
+            <a href="#" class="in">Sign In</a>
+         </div>
+
+
+
+
+        </form>
+         
+        <div class="dark-light">
+            <i class="bx bx-moon moon"></i>
+            <i class="bx bx-sun sun"></i>
+        </div>
+
+     </div>
+
+     <script>
+      function submitForm()
+     {
+         let name = document.getElementById('user').value;
+         let email = document.getElementById('email').value;
+         let pass = document.getElementById('pass').value;
+
+         let uid  = localStorage.setItem('name', name);
+         let email0 =localStorage.setItem('email', email);
+         let pass1 = localStorage.setItem('password', pass);
+
+
+         let userName = 'Amna';
+         let email1 = 'amna@gmail.com';
+         let password = '12345'
+
+         if( userName == uid && email1 == email0 && password == pass1){
+
+            alert('Login Succesful')
+         }else{
+            alert('Your password and email is incorrect')
+         }
+
+    }
+
+        const body = document.querySelector("body"),
+        modeToggle = document.querySelector(".dark-light");
+
+        modeToggle.addEventListener("click", ()=>{
+        modeToggle.classList.toggle("active");
+        body.classList.toggle("dark");
+
+        if(!body.classList.contains("dark"))
+        {
+            localStorage.setItem("mode", "light-mode");
+        }
+        else{
+            localStorage.setItem("mode", "dark-mode");
+        }
+
+    
+       })
+     </script>
+
+      </body>
+     </html>
